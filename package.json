@@ -4,8 +4,25 @@
   "description": "Chill is an app that allows people to virtually stand in line for stores. While most states have reopened and restrictions have loosened, we figured in case we ever come across this situation again, stores and citizens will still have a way to safely shop. Instead of having to wait in long lines outside, users can wait inside their car and wait for their turn to enter the store.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Christopher Mullins and Merissa Bridgeman",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CL-mullins/chill-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CL-mullins/chill-app/issues"
+  },
+  "homepage": "https://github.com/CL-mullins/chill-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2"
+  },
+  "devDependencies": {}
 }
