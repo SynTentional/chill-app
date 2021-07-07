@@ -113,31 +113,14 @@ To capture higher profile startup personalities like Hunter Walk we may submit p
 
 Models
 User
-twitter_uid
 name
+store_name
+store_id
 username
 image
-headline
-daily_email?
-Post
-user_id
-name
-tagline
-clicks
 url
-PostVote
 user_id
-post_id
-Comment
-user_id
-body
-CommentVote
-user_id
-comment_id
-Reply
-comment_id
-user_id
-body
+
 
 
 
@@ -159,75 +142,20 @@ Email Existing Linkydink Users
 
 ## Post-Launch Marketing
 
-Product Deconstructions Blog Posts
+Homepage Feed (Viewing Posts) - 
+Display of different categories each of which will have a carousel of different options for the user to browse.
 
-Homepage Feed (Viewing Posts) - Logged In
-Initially, everything is displayed chronologically rather than algorithmically or based on votes.  Since the user base will be relatively small at first, we won’t have enough people voting to meaningfully rank products (yet).
-
-
-
-Permalink Page
-Each post has it’s own URL to share.  Will be useful for encouraging hunters to post links to their findings (e.g. “I just posted Coin to Product Hunt - http://producthunt.co/posts/coin).
+Detail Page
+Each store has it’s own detail page where users can find out more info on store hours, address, and a CTA to browse their site while they wait.  Will be drive more traffic to the stores website. 
 
 
 
 
-Interactions & User Feedback Loops
-The success of Product Hunt relies on effective feedback loops and re-engagement with the service, something heavily lacking in the linkydink MVP.  Users can interact in the following ways:
-
-v1
-Submit Posts
-Comment on Posts
-Upvote Posts
-
-Post-v1
-View a Post - a la Quibb, show who viewed a post and if not registered, anonymize.  Could also just be the count.
-Upvote Comments
-Follow Users
-Mention Users - ability to tag a user in a post description or comment (e.g. “@ryan posted a similar product, XYZ”)
-Forward to Users - notify specific users (a la Potluck) of a product/post they might be interested in, could be seamlessly part of the posting flow
-
-
-Submitting a Post
-Each post includes:
-
-URL
-Title/Name - 100 char max
-Description - 250 char max
-Submitted By
-Upvote Count & Who Voted
-Comments
-
-No deduping of URL’s (e.g. if a user already submits a link to mindie.co, it shouldn’t prevent another person from submitting again) is necessary for v1 but something to consider in the future
-
-
-### Commenting on a Post
-Any registered user can comment on a post in a chronological discussion (threaded or not?)
-
-
-### Upvoting/Liking a Post
-Any registered user can upvote/like a post, incrementing its vote count by one.
-
-
-### Email Notifications
-Users receive the following email notifications:
-
-Daily Product Hunt digest - list of all posts for the day (later could be top 10 products and could be changed to weekly digest if the user prefers)
-Social Re-engagement - new follows, comments, post upvotes
 
 
 
-## Registering
-Users must register with their Twitter profile and supply an email address.  Their Twitter profile picture, @username, and bio is stored and used.  Users should automatically follow people on Product Hunt that they already follow on Twitter to increase notifications and investment in the service.
 
 
-## Future Ideas
-
-Notification Feed - notifications of new social activity (comments, upvotes, etc.)
-Browser Extension/Bookmarklet
-Tweet to Post - ability to tweet at @producthunt to submit new posts
-Email to Post - ability to email submit@producthunt.co to submit new posts
-Mobile - the site should be responsive and adapt to a mobile interface but mobile usability isn’t necessary for v1.
 
 
 
