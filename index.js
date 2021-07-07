@@ -12,6 +12,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'))
 
+require('./routes/index.js')(app);
+//require('./routes/detail.js')(app);
+
 
 
 app.listen(port, () => {
