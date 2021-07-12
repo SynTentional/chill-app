@@ -8,4 +8,4 @@ const storeSchema = new Schema({
     queue: { type: Number, required: true}
 });
 
-module.exports = model('Store', postSchema);
+module.exports = model('Store', storeSchema);
