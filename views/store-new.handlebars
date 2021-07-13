@@ -1,0 +1,41 @@
+<!-- TODO: Reformat -->
+
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <form action="/posts/new" method="post">
+      <legend>New Store</legend>
+      <div class="form-group">
+        <label for="store-name">Title</label>
+        <input
+          type="text"
+          name="title"
+          class="form-control"
+          id="post-title"
+          placeholder="Title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="store-url">Url</label>
+        <input
+          type="url"
+          name="url"
+          class="form-control"
+          id="store-url"
+          placeholder="https://www.google.com"
+        />
+      </div>
+      <div class="form-group">
+        <label for="store-summary">Summary</label>
+        <textarea
+          name="summary"
+          class="form-control"
+          id="store-summary"
+          placeholder="Summary"
+        ></textarea>
+      </div>
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary">Add Store</button>
+      </div>
+    </form>
+  </div>
+</div>

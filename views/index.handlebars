@@ -13,6 +13,17 @@
     <h1>Chill App</h1>
   <!-- Triple brackets -->
   <!-- Learn handlebars syntax--->
-  <p> testing testing 123</p>
+  <div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <ul>
+      {{#each store}}
+        <li class="list-group-item">
+          <div class="lead">{{this.name}}</div>
+          <a href="{{this.url}}" target="_blank">{{this.url}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
   </body>
 </html>

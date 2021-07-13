@@ -15,6 +15,7 @@ app.use(express.static('public'))
 // ROUTES
 require('./routes/index.js')(app);
 require('./routes/auth.js')(app);
+require('./routes/stores.js')(app);
 //require('./routes/detail.js')(app);
 
 
