@@ -57,7 +57,7 @@ module.exports = (app) => {
 
 
     app.get('/store/:id', (req, res) => {
-        storeId = Store.findById({_id:req.params.id})
+        storeId = Store.find({_id:req.params.id}).lean().populate('name')
         const { user } = req;
         res.render('stores-detail', { storeId });
         // console.log(storeId);
