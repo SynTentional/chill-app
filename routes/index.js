@@ -1,22 +1,28 @@
 // INDEX
-
 const app = require("..");
 const User = require('../models/user');
-const Stores = require('../models/store');
+const Store = require('../models/store');
 
 
 
 module.exports = (app) => {
 
-    // INDEX HOMEPAGE
+    // INDEX
+    app.post('/', (req, res) => {
+        const { user } = req;
+        console.log(req.cookies);
+        res.render('index')
+    })
+
+    // SHOW
     app.get('/', (req, res) => {
         const { user } = req;
         console.log(req.cookies);
-        // Run route
-        // Populate page with store data
-        // Stores.find({}).lean.populate('stores')
-        //     .then((index) => res.render('index', { stores, user }))
-        res.render('index')
+        Store.find({}).lean().populate()
+            .then((store) => res.render('index', { store }))
+            .catch((err) => {
+                console.log(err.message)
+            })
 
     });
 
@@ -24,22 +30,22 @@ module.exports = (app) => {
     app.get('/stores/new', (req, res) => {
         //const { user } = req;
         console.log(req.cookies);
-        res.render('store-new')
+        res.render('stores-new')
     });
 
     // CREATE
     app.post('/stores/new', (req, res) => {
         console.log(req.cookies);
         const store = new Store(req.body);
-        store.name = "";
-        store.url = "";
-        store.summary = "";
-        store.queue = [];
-
+        
         store
             .save()
-        res.render('store-new')
-    })
+            .catch((err) => {
+                console.log(err.message);
+            })
+        // REDIRECT TO INDEX SHOWING STORE
+        return res.redirect('/');
+    });
 
     // SHOW
 
