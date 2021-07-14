@@ -1,6 +1,7 @@
 /* Mongoose Connection */
 const mongoose = require('mongoose');
 const assert = require('assert');
+const store = require('../models/store');
 
 const url = 'mongodb://localhost/chill-db';
 mongoose.connect(
@@ -18,5 +19,6 @@ mongoose.connect(
 
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection Error:'));
 mongoose.set('debug', true);
+
 
 module.exports = mongoose.connection;
