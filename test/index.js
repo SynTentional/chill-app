@@ -24,4 +24,17 @@ describe('site', function () {
                 return done(); // Call done if test completed successfully
             })
     })
+
+    it('Should have users', function () {
+        // bar
+    })
+
+
+    it('Should incremenet queue', function() {
+        // foo
+    }
+
+    it('Should assign users queue numbers', function () {
+        // buz
+    })
 })

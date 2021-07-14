@@ -35,6 +35,9 @@ module.exports = (app) => {
         res.render('stores-new')
     });
 
+    // Register helper function
+
+
     // CREATE
     app.post('/stores/new', (req, res) => {
         console.log(req.cookies);
@@ -57,7 +60,7 @@ module.exports = (app) => {
 
 
     app.get('/store/:id', (req, res) => {
-        storeId = Store.find({_id:req.params.id}).lean().populate('name')
+        storeId = Store.findById({_id:req.params.id})
         const { user } = req;
         res.render('stores-detail', { storeId });
         // console.log(storeId);
