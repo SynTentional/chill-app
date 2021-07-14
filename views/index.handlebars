@@ -6,24 +6,13 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <link href="/css/index.css">
 
     <title>Chill App</title>
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand">Chill App</a>
-        <a class="nav-link" href="/stores/new">Add store</a>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
+    <h1>Chill App</h1>
   <!-- Triple brackets -->
   <!-- Learn handlebars syntax--->
-<<<<<<< HEAD
   <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
     <ul>
@@ -32,45 +21,12 @@
           <div class="lead">{{this.name}} <a href="store/{{this._id}}"> <button type="submit" class="btn btn-primary">Details</button></a></div>
           <a href="{{this.url}}" target="_blank">{{this.url}}</a>
           <p>{{this.summary}}</p>
-          {{this._id}}
           <p>Users in line: {{this.queue}}</p>
           <button type="submit" onclick="joinQueue" class="btn btn-primary">Join Queue</button>
         </li>
       {{/each}}
     </ul>
-=======
-  <div class="container">
-    <div class="row">
-      <h2>Browse stores</h2>
-    </div>
-    <div class="row">
-      <div class="container">
-        {{#each store}}
-        <div class="col-md-3">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h4 class="card-title">{{this.name}}</h4>
-              <a href="{{this.url}}" class="card-link">{{this.url}}</a>
-              <p class="card-text">Users in line: {{this.queue}}</p>
-              <button type="submit" class="btn btn-primary">Join Queue</button>
-            </div>
-          </div>
-        {{/each}}
-      </div>
-        {{!-- <ul>
-          {{#each store}}
-            <li class="list-group-item">
-              <div class="lead">{{this.name}}</div>
-              <a href="{{this.url}}" target="_blank">{{this.url}}</a>
-              <p>{{this.summary}}</p>
-              <p>Users in line: {{this.queue}}</p>
-              <button type="submit" class="btn btn-primary">Join Queue</button>
-            </li>
-          {{/each}}
-        </ul> --}}
-      </div>
-      </div>
->>>>>>> 478b87f2437f282634198392cf237ca437a26d28
   </div>
+</div>
   </body>
 </html>
