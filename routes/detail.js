@@ -12,8 +12,9 @@ module.exports = (app) => {
         Store.find()
     })
 
-    app.get('/', (req, res) => {
-        const { user } = req;
+    app.get('/:store', (req, res) => {
+        const store = Store.findById(req.params.id)
+        res.render('detail', {store})
         // Run route
         console.log(req.cookies);
         res.render('detail')
