@@ -37,6 +37,7 @@ module.exports = (app) => {
     app.post('/stores/new', (req, res) => {
         console.log(req.cookies);
         const store = new Store(req.body);
+        store.queue = 0;
         
         store
             .save()
