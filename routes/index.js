@@ -57,12 +57,15 @@ module.exports = (app) => {
 
 
     app.get('/store/:id', (req, res) => {
+        storeId = Store.findById({_id:req.params.id})
         const { user } = req;
-        store = Store.find({_id:req.params.id}).populate()
-        .then((store) =>  res.render('stores-detail', { store }))
-        .catch((err) => {
-            console.log(err.message);
-        })
+        res.render('stores-detail', { storeId });
+        // console.log(storeId);
+        // store = Store.findById(storeId)
+        // .then((store) =>  res.render('stores-detail', { store }))
+        // .catch((err) => {
+        //     console.log(err.message);
+        // })
         // Run route
         console.log(req.cookies);
     });
