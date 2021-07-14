@@ -2,6 +2,7 @@
 const app = require("..");
 const User = require('../models/user');
 const Store = require('../models/store');
+const store = require("../models/store");
 
 
 
@@ -35,17 +36,14 @@ module.exports = (app) => {
         res.render('stores-new')
     });
 
-    // Register helper function
 
 
     // CREATE
     app.post('/stores/new', (req, res) => {
         console.log(req.cookies);
         const store = new Store(req.body);
-        store.queue = 0;
         console.log(store._id);
         onclick = function joinQueue(){
-        store.queue = store.queue + 1
             // user is assigned a place in the queue
         };
         store
@@ -58,6 +56,7 @@ module.exports = (app) => {
 
     });
 
+    // STORE DETAIL PAGE
 
     app.get('/store/:id', (req, res) => {
         storeId = Store.findById({_id:req.params.id})
@@ -72,6 +71,20 @@ module.exports = (app) => {
         // Run route
         console.log(req.cookies);
     });
+
+    // STORE JOIN QUEUE POST ROUTE
+    app.post('/store/:id/join_queue', (req, res) => {
+        store = Store.findById({_id:req.params.id})
+        const { user } = req;
+        store.queue.push(user)
+        res.render('index');
+
+    })
+
+    app.get('/store/:id/join_queue', (req, res) => {
+        storeId = Store.findById({_id:req.params.id});
+        res.render('index');
+    })
 
     // app.post('store/:id', (req, res) => {
     //     const { user } = req;

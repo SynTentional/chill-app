@@ -9,12 +9,12 @@ const port = 3000
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-// Custom helpers
-exphbs.registerHelper('joinQueue', function() {
-  // utilize store model to increment queue variable per store
-  instance = Store.findById('foo')
-  instance.queue = instance.queue + 1
-})
+// // Custom helpers
+// exphbs.registerHelper('joinQueue', function() {
+//   // utilize store model to increment queue variable per store
+//   instance = Store.findById('foo')
+//   instance.queue = instance.queue + 1
+// })
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
