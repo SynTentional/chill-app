@@ -1,0 +1,13 @@
+.nav-link{
+    font-family: sans-serif;
+    font-size: 18px;
+    color: white;
+}
+.container{
+    margin-left: 15px;
+}
+.row{
+    width: 600px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
