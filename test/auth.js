@@ -45,6 +45,13 @@ describe("User", function () {
         });
     });
 
+    it('Should authenticate admin status', function() {
+      // foo
+  })
+
+    it('Should allow admins to add stores to DB', function() {
+    // foo
+})
   });
   after(function () {
     agent.close();
