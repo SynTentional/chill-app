@@ -15,12 +15,12 @@
   <!-- Learn handlebars syntax--->
   <div class="container">
     <div class="row">
-      <!--{{#if currentUser}}-->
+      {{#if currentUser}}
       <h2>Browse stores</h2>
     </div>
     <div class="row">
       <div class="container">
-        {{#each store}}
+        {{#each stores}}
         <div class="col-md-3">
           <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -46,7 +46,7 @@
         </ul> --}}
       </div>
       </div>
-      <!--{{/if}}-->
+      {{/if}}
   </div>
   </body>
 </html>

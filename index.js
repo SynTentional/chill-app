@@ -29,6 +29,8 @@ app.use(cookieParser());
 require('./data/chill-db');
 
 const checkAuth = require('./middleware/checkAuth');
+app.use(checkAuth);
+
 
 // ROUTES
 require('./routes/index.js')(app);
@@ -36,7 +38,6 @@ require('./routes/auth.js')(app);
 //require('./routes/detail.js')(app);
 
 
-app.use(checkAuth);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

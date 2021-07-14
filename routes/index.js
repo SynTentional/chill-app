@@ -8,21 +8,13 @@ const store = require("../models/store");
 
 module.exports = (app) => {
 
-    // INDEX
-    app.post('/', (req, res) => {
-        const { user } = req;
-        console.log(req.cookies);
-
-        
-        res.render('index')
-    })
-
     // SHOW
     app.get('/', (req, res) => {
-        const { user } = req;
-        console.log(req.cookies);
+        // console.log(req.cookies);
+        console.log(req.user);
+        const currentUser = req.user;
         Store.find({}).lean().populate()
-            .then((store) => res.render('index', { store }))
+            .then((stores) => res.render('index', { stores, currentUser }))
             .catch((err) => {
                 console.log(err.message)
             })
@@ -78,7 +70,6 @@ module.exports = (app) => {
         const { user } = req;
         store.queue.push(user)
         res.render('index');
-
     })
 
     app.get('/store/:id/join_queue', (req, res) => {
