@@ -7,12 +7,12 @@ module.exports = (app) => {
 
     // INDEX 
     // pulls up store that you clicked on
-    app.post('/:store', (req, res) => {
+    app.post('/store/:store._id', (req, res) => {
         const { user } = req;
-        Store.find()
+        res.render('detail')
     })
 
-    app.get('/', (req, res) => {
+    app.get('/store/store._id', (req, res) => {
         const { user } = req;
         // Run route
         console.log(req.cookies);

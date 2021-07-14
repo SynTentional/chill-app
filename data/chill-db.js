@@ -20,5 +20,9 @@ mongoose.connect(
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection Error:'));
 mongoose.set('debug', true);
 
+// NOTE: Use this to reset database
+// store.deleteMany({}, function(err) { 
+//     console.log('collection removed') 
+//  });
 
 module.exports = mongoose.connection;

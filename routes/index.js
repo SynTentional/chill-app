@@ -11,6 +11,8 @@ module.exports = (app) => {
     app.post('/', (req, res) => {
         const { user } = req;
         console.log(req.cookies);
+
+        
         res.render('index')
     })
 
@@ -38,7 +40,11 @@ module.exports = (app) => {
         console.log(req.cookies);
         const store = new Store(req.body);
         store.queue = 0;
-        
+        console.log(store._id);
+        onclick = function joinQueue(){
+        store.queue = store.queue + 1
+            // user is assigned a place in the queue
+        };
         store
             .save()
             .catch((err) => {
@@ -46,7 +52,27 @@ module.exports = (app) => {
             })
         // REDIRECT TO INDEX SHOWING STORE
         return res.redirect('/');
+
     });
+
+
+    app.get('/store/:id', (req, res) => {
+        const { user } = req;
+        store = Store.find({_id:req.params.id}).populate()
+        .then((store) =>  res.render('stores-detail', { store }))
+        .catch((err) => {
+            console.log(err.message);
+        })
+        // Run route
+        console.log(req.cookies);
+    });
+
+    // app.post('store/:id', (req, res) => {
+    //     const { user } = req;
+    //     storeId = Store.find({_id:req.params.id}).populate()
+    //     console.log(req.cookies);
+    //     res.render('stores-detail');
+    // })
 
     // SHOW
 
