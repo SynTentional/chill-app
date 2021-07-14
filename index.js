@@ -1,6 +1,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars');
 const dotenv = require('dotenv').config();
+const cookieParser = require('cookie-parser');
 const app = express()
 const port = 3000
 
@@ -21,8 +22,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'))
 
 
+// COOKIE PARSER
+app.use(cookieParser());
+
 // DATABASE
 require('./data/chill-db');
+
+const checkAuth = require('./middleware/checkAuth');
 
 // ROUTES
 require('./routes/index.js')(app);
@@ -30,6 +36,7 @@ require('./routes/auth.js')(app);
 //require('./routes/detail.js')(app);
 
 
+app.use(checkAuth);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
