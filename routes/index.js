@@ -11,7 +11,6 @@ module.exports = (app) => {
     // SHOW
     app.get('/', (req, res) => {
         // console.log(req.cookies);
-        console.log(req.user);
         const currentUser = req.user;
         Store.find({}).lean().populate()
             .then((stores) => res.render('index', { stores, currentUser }))
@@ -20,6 +19,12 @@ module.exports = (app) => {
             })
 
     });
+
+    // JOIN QUEUE
+    app.post('/', (req, res) => {
+        store = Store.findById({_id:req.params.id});
+        res.redirect('index');
+    })
 
     // INDEX
     app.get('/stores/new', (req, res) => {
@@ -32,12 +37,8 @@ module.exports = (app) => {
 
     // CREATE
     app.post('/stores/new', (req, res) => {
-        console.log(req.cookies);
         const store = new Store(req.body);
         console.log(store._id);
-        onclick = function joinQueue(){
-            // user is assigned a place in the queue
-        };
         store
             .save()
             .catch((err) => {
@@ -52,7 +53,6 @@ module.exports = (app) => {
 
     app.get('/store/:id', (req, res) => {
         storeId = Store.findById({_id:req.params.id})
-        const { user } = req;
         res.render('stores-detail', { storeId });
         // console.log(storeId);
         // store = Store.findById(storeId)
@@ -64,17 +64,27 @@ module.exports = (app) => {
         console.log(req.cookies);
     });
 
-    // STORE JOIN QUEUE POST ROUTE
+    //STORE JOIN QUEUE POST ROUTE
     app.post('/store/:id/join_queue', (req, res) => {
+        const currentUser = req.user
         store = Store.findById({_id:req.params.id})
-        const { user } = req;
-        store.queue.push(user)
+        console.log(store._id)
+        store.queue.push(currentUser);
+        store
+            .save()
+            .catch((err) => {
+                console.log(err.message);
+            })
         res.render('index');
     })
 
     app.get('/store/:id/join_queue', (req, res) => {
-        storeId = Store.findById({_id:req.params.id});
-        res.render('index');
+        const currentUser = req.user
+        Store.find({_id:req.params.id}).lean().populate()
+        .then((store) => res.render('store-enqueue', { store, currentUser }))
+
+        console.log()
+        
     })
 
     // app.post('store/:id', (req, res) => {
