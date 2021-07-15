@@ -14,11 +14,11 @@ The purpose of this project had stemmed from past pandemic restrictions where pe
 
 The biggest challenge for both of us was putting into practice a language we had just learned. Our tech stack consisted of nodejs, mongoose, bootstrap, and handlebars and most of these we had just learned within the past couple of months. 
 
-******Challenges for Merissa:******
+Challenges for Merissa:
 
 The biggest challenge for me was just learning and understanding the new syntax for using handlebars. I was intimidated at first and caused a delay in the implementation of the front end.
 
-******Challenges for Chris:******
+Challenges for Chris:
 
 Biggest challenges were around using models. Learning mongoose was a struggle and it took me a while to be able to figure out how to use data from my models throughout different areas of my file structure. It seemed difficult at first, but I gained a lot from just diligently scraping through the web and asking for help on various problems.
 
