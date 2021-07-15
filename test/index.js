@@ -23,5 +23,22 @@ describe('site', function () {
                 res.should.have.status(200);
                 return done(); // Call done if test completed successfully
             })
-    })
-})
+    });
+
+
+
+    it('Should incremenet queue', function() {
+        // foo
+    });
+
+    it('Should assign users queue numbers', function () {
+        // buz
+    });
+
+    it('Should let users know when it is their turn', function() {
+        // foo
+    });
+after(function () {
+    agent.close();
+    });  
+});

@@ -6,7 +6,7 @@ const storeSchema = new Schema({
     url: { type: String, required: true },
     summary: { type: String, required: true },
     // Display # of people in Queue
-    queue: { type: Number, required: false}
+    queue: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
 // Example models

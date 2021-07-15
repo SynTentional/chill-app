@@ -2,31 +2,29 @@
 const app = require("..");
 const User = require('../models/user');
 const Store = require('../models/store');
+const store = require("../models/store");
 
 
 
 module.exports = (app) => {
 
-    // INDEX
-    app.post('/', (req, res) => {
-        const { user } = req;
-        console.log(req.cookies);
-
-        
-        res.render('index')
-    })
-
     // SHOW
     app.get('/', (req, res) => {
-        const { user } = req;
-        console.log(req.cookies);
+        // console.log(req.cookies);
+        const currentUser = req.user;
         Store.find({}).lean().populate()
-            .then((store) => res.render('index', { store }))
+            .then((stores) => res.render('index', { stores, currentUser }))
             .catch((err) => {
                 console.log(err.message)
             })
 
     });
+
+    // JOIN QUEUE
+    app.post('/', (req, res) => {
+        store = Store.findById({_id:req.params.id});
+        res.redirect('index');
+    })
 
     // INDEX
     app.get('/stores/new', (req, res) => {
@@ -35,16 +33,12 @@ module.exports = (app) => {
         res.render('stores-new')
     });
 
+
+
     // CREATE
     app.post('/stores/new', (req, res) => {
-        console.log(req.cookies);
         const store = new Store(req.body);
-        store.queue = 0;
         console.log(store._id);
-        onclick = function joinQueue(){
-        store.queue = store.queue + 1
-            // user is assigned a place in the queue
-        };
         store
             .save()
             .catch((err) => {
@@ -55,10 +49,15 @@ module.exports = (app) => {
 
     });
 
+    // STORE DETAIL PAGE
 
     app.get('/store/:id', (req, res) => {
+<<<<<<< HEAD
         storeId = Store.find({_id:req.params.id}).lean().populate('name')
         const { user } = req;
+=======
+        storeId = Store.findById({_id:req.params.id})
+>>>>>>> c0aad2220c02e111d0996368e4afedd5abcd2d06
         res.render('stores-detail', { storeId });
         // console.log(storeId);
         // store = Store.findById(storeId)
@@ -69,6 +68,29 @@ module.exports = (app) => {
         // Run route
         console.log(req.cookies);
     });
+
+    //STORE JOIN QUEUE POST ROUTE
+    app.post('/store/:id/join_queue', (req, res) => {
+        const currentUser = req.user
+        store = Store.findById({_id:req.params.id})
+        console.log(store._id)
+        store.queue.push(currentUser);
+        store
+            .save()
+            .catch((err) => {
+                console.log(err.message);
+            })
+        res.render('index');
+    })
+
+    app.get('/store/:id/join_queue', (req, res) => {
+        const currentUser = req.user
+        Store.find({_id:req.params.id}).lean().populate()
+        .then((store) => res.render('store-enqueue', { store, currentUser }))
+
+        console.log()
+        
+    })
 
     // app.post('store/:id', (req, res) => {
     //     const { user } = req;

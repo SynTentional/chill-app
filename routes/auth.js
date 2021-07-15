@@ -57,5 +57,6 @@ module.exports = app => {
         .catch((err) => {
             console.log(err);
         });
+        console.log('Successfully logged in');
     });
 };
