@@ -1,7 +1,9 @@
 var express = require('express');
 var exphandlebars = require('express-handlebars');
-
+var path = require('path');
 var app = express();
+
+app.use(express.static('public'));
 
 app.engine('handlebars', exphandlebars());
 app.set('view engine', 'handlebars');
