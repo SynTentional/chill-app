@@ -1,136 +1,41 @@
 # Chill
 
 _“No more long lines”_
+Introducing Chill
 
-## Intro & Goal
+Chill is an app that allows people to virtually stand in line for stores. Instead of having to wait in long lines outside, users can wait inside their car and wait for their turn to enter the store.Users will have a browse section so while they wait they can browse through the store's site and determine what they want to buy. This will hopefully lead to less time in the store as well if users know exactly what they want. For our MVP, we’ve populated our database with pre-created stores and users will have the option to stand in line at that store. The join queue button will then tell you your position in line.
 
-Our goal is to make Chill the app paves a new way for safe shopping. Others in this space focus on a pre-ordering/pickup model. Chill is a way for users to still enjoy in person shopping all while waiting from the comfort of their car.
+**Why?**
 
-## Who’s it for?
+The purpose of this project had stemmed from past pandemic restrictions where people were only allowed in stores in increments. In a time where people were desperate to be outside, more and more people were taking trips to the store. This was an issue because the lines for these stores were outrageous and not very safe with everyone being in the same space. We decided to create a way for people to still enjoy shopping but in a way that coincided more with the new restrictions that were put in place. 
 
-In-person shoppers - those who like to shop in person or want to quality control the product they intend to buy. This also fits those who stand in long lines for sales or for the hottest new thing for their child.
-Retail stores - The pandemic has shown that retail stores need something to pivot on when they must limit who can enter their store at a given time.
 
-## Why build it?
+**Challenges**
 
-It’s something we personally enjoy using
-It’s good to have a backup plan in case restrictions are put in place in the future.
-Monetization opportunities in advertising and/or data
-Usability
+The biggest challenge for both of us was putting into practice a language we had just learned. Our tech stack consisted of nodejs, mongoose, bootstrap, and handlebars and most of these we had just learned within the past couple of months. 
 
-# What is it?
+******Challenges for Merissa:******
 
-## Glossary
+The biggest challenge for me was just learning and understanding the new syntax for using handlebars. I was intimidated at first and caused a delay in the implementation of the front end.
 
-**Index View** - homepage of stores to stand in line
-**Detailed View** - permalink page for each store
-**Map View** - users create routes for all the stores they want to go to (login required)
-**In-line View** - shows current wait time and line number
-**Store-View** - shows count of people in the store by their id.
+******Challenges for Chris:******
 
-## User Types
+Biggest challenges were around using models. Learning mongoose was a struggle and it took me a while to be able to figure out how to use data from my models throughout different areas of my file structure. It seemed difficult at first, but I gained a lot from just diligently scraping through the web and asking for help on various problems.
 
-**Non-Registered Users** - people that have no yet registered but can still stand in line for a store
-**Registered Viewers** - people that have registered, these users can create routes(map feature) and favorite/subscribe to stores
-**Retail Stores** - stores that are partnered with chill
+What did we do about these challenges?
 
-### Index View
+What Merissa did:
 
-The Index View (ie, homepage) displays a list of stores.
+I created pair programming sessions with Chris and he really helped explain what was happening and how to format the syntax. We also practiced writing our own tickets so that when we meet up to discuss blockers we use that.
 
-When not signed in, a CTA must be presented to signup. When signed up, a CTA to stand in line must be present.
+What Chris did:
+Chris has gone to office hours with the instructor to work out the bugs he’s had with the routes. He’s shown up to all of our pair programming sessions as well. 
 
-Additionally, there should be a section with a list view of the store you’re currently waiting in line for.
+**What’s Next?**
 
-### Detailed View
+We think this could be a cool portfolio project so we want to implement more features for admin users. These include:
 
-The Detailed View (ie, permalink page) displays information about the store. CTA to browse their website must be present.
+Being able to create a list of things to buy while browsing the stores site
+Create routes so that when a user leaves a store, they can press a button that their heading to the next store on their route and then the app will automatically put them in line once they are in the proximity of the store.
+Have an estimated wait time.
 
-Additionally, this page should include how many people are ahead of you and an estimated time wait.
-
-### Map View
-
-Each post must contain:
-
-**Name** - name of the product or service
-**Tagline** - short (<60 character?) description of the product or service
-**URL** - duh
-**Submitted By** - person that submitted the post with their profile picture and/or name
-**Votes** - number of votes for that post w/ profile pics of each user that voted
-**Comments** - number of comments for that post (maybe with profile pics of those that commented)
-
-After submitting a post, the user should be instructed to say something interesting, adding the first comment to spark conversation.
-
-## Stores
-
-Each store includes:
-
-**Name** - Name of the store
-**URL** - link to website (CTA eg. “ browse target’s deals while you wait”)
-**Store hours** - how long is the store open
-**Address of the store**
-
-### Favorite/Subscription
-
-Users can favorite/subscribe to stores. This does not change the Index View (the feed of posts) but will be used to re-engage users when people they follow take actions like browse websites, or create routes.
-
-### Post Notifications
-
-Users receive the following post notifications:
-
-When they are next in line - In app notification banner will pop up on screen or on phone when they are up to enter the store.
-Map Re-engagement
-After a user leaves the store, they will get a notification to open the app to get directions to the next store.
-Registration
-Every user must register getting the following information:
-
-Name
-email
-Password
-
-### Brainstormed Ideas
-
-### Competitors & Product Inspiration
-
-### Seeding Users & Content
-
-Initial contributors will be hand-picked to create exclusivity and reduce potential spam. Ideal contributors will be recognizable product people (e.g. Nir Eyal, Semil Shah, Hiten Shah) and investors (e.g. Josh Elman, Nick Chirls) in the startup space but may also include lesser known, early tech adopters.
-
-To capture higher profile startup personalities like Hunter Walk we may submit product finds on his behalf with permission (e.g. based on something he’s tweeted).
-
-### Mockups
-
-#### Index View
-
-#### Detail View
-
-## Tech Notes
-
-Models
-User
-name
-store_name
-store_id
-username
-image
-url
-user_id
-
-## Go to Market
-
-Engage/Recruit Retail Stores - make them feel that this will benefit their sales
-Ask for direct product feedback
-Feedback on User Experience
-Invite Contributors Before Public Launch - ensure site is populated
-
-## Post-Launch Marketing
-
-Homepage Feed (Viewing Posts) -
-Display of different categories each of which will have a carousel of different options for the user to browse.
-
-Detail Page
-Each store has it’s own detail page where users can find out more info on store hours, address, and a CTA to browse their site while they wait. Will be drive more traffic to the stores website.
-
-## Seeding Users & Content
-
-Initial contributors will be hand-picked to create exclusivity and reduce potential spam. Ideal contributors will be people who enjoy shopping at stores in person but who don't necessarily want to have to wait outside for hours.
