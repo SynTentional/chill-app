@@ -47,7 +47,7 @@ module.exports = (app) => {
                 console.log(err.message);
             })
         // REDIRECT TO INDEX SHOWING STORE
-        return res.redirect('/');
+        return res.redirect('/index');
 
     });
 

@@ -1,0 +1,17 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+}
+html{
+    height: 100vh;
+    width: 100vw;
+}
+form{
+    display: inline-block;
+}
+
+.btn-primary{
+    margin-top: 25px; 
+    background-color: black; 
+}
