@@ -32,7 +32,7 @@
             <div class="card-body">
               <h2 class="card-title">{{this.name}}</h2>
               <a href="{{this.url}}" class="card-link">{{this.url}}</a>
-              <p class="card-text">Users in line: {{store.queue}}</p>
+              <p class="card-text">Users in line: {{this.queue.length}}</p>
               {{!-- <button type="submit" class="btn btn-primary">Join Queue</button> --}}
               <a href="store/{{this._id}}/join_queue" method="post"><button type="submit" class="btn btn-primary">Join Queue</button></a>
               <a href="store/{{this._id}}" method="post"><button type="submit" class="btn btn-primary">Details</button></a>
