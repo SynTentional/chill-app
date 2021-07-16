@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 module.exports = app => {
 
   // SIGN UP GET
-  app.get('/sign-up', (req, res) => res.render('sign-up'));
+  app.get('/sign-up', (req, res) => res.render('partials/sign-up'));
 
   // SIGN UP POST
   app.post('/sign-up', (req, res) => {
@@ -28,7 +28,7 @@ module.exports = app => {
 
     // LOGIN
   // LOGIN FORM
-  app.get('/login', (req, res) => res.render('login'));
+  app.get('/login', (req, res) => res.render('partials/login'));
 
     app.post('/login', (req, res) => {
         const { username, password } = req.body;
