@@ -28,7 +28,7 @@ module.exports = app => {
 
     // LOGIN
   // LOGIN FORM
-  app.get('/login', (req, res) => res.render('partials/login'));
+  app.get('/login', (req, res) => res.render('login'));
 
     app.post('/login', (req, res) => {
         const { username, password } = req.body;

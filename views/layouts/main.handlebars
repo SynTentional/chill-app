@@ -10,9 +10,11 @@
 
     <title>Chill App</title>
   </head>
-  {{#if currentUser}}
+
+  <!--Registers main page if user is signed in-->
     {{{body}}}
-  {{else}}
-  {{> sign-up}}
-{{/if}}
+  <!--Will only take you to the sign up page-->
+  <!--This needs to be fixed such that it allows the log in partial as well-->
+  <!--This can be solved by making a authentication partial that substitutes login / sign up-->
+
 </html>

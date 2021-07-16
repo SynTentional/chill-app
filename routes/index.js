@@ -46,6 +46,7 @@ module.exports = (app) => {
     app.post('/stores/new', (req, res) => {
         const store = new Store(req.body);
         console.log(store._id);
+        store.queue = []; // initialize arrays
         store
             .save()
             .catch((err) => {
@@ -76,6 +77,7 @@ module.exports = (app) => {
         const currentUser = req.user;
         Store.findById(req.params.id)
             .then(store => {
+                console.log(store.queue)
                 store.queue.push(currentUser);
                 console.log(store.queue.length)
                 store
