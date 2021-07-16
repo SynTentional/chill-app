@@ -10,7 +10,12 @@ module.exports = (app) => {
 
     // SHOW
     app.get('/', (req, res) => {
-        res.render('sign-up')
+        const currentUser = req.user;
+        Store.find({}).lean().populate()
+        .then((stores) => res.render('index', { stores, currentUser }))
+        .catch((err) => {
+            console.log(err.message)
+        })
     });
 
     app.get('/index', (req, res) => {
@@ -68,26 +73,24 @@ module.exports = (app) => {
 
     //STORE JOIN QUEUE POST ROUTE
     app.post('/store/:id/join_queue', (req, res) => {
-        const currentUser = req.user
-        store = Store.findById({_id:req.params.id})
-        console.log(store._id)
-        store.queue.push(currentUser);
-        store
-            .save()
-            .catch((err) => {
-                console.log(err.message);
+        const currentUser = req.user;
+        Store.findById(req.params.id)
+            .then(store => {
+                store.queue.push(currentUser);
+                console.log(store.queue.length)
+                store
+                    .save()
+                    .catch((err) => {
+                        console.log(err.message);
+                    })
+                res.redirect('/');
             })
-        res.render('index');
-    })
+            .catch(err => {
+                console.log(err)
+            })
 
-    app.get('/store/:id/join_queue', (req, res) => {
-        const currentUser = req.user
-        Store.find({_id:req.params.id}).lean().populate()
-        .then((store) => res.render('store-enqueue', { store, currentUser }))
+    });
 
-        console.log()
-        
-    })
 
     // app.post('store/:id', (req, res) => {
     //     const { user } = req;
