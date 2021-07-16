@@ -6,11 +6,12 @@
 .container{
     margin-left: 15px;
 }
+.navbar{
+padding: 20px;
+justify-content: flex-start;
+}
 .row{
     width: 600px;
     margin-top: 20px;
     margin-bottom: 15px;
-}
-.card{
-    padding-left: 50px;
 }

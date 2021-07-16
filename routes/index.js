@@ -10,20 +10,22 @@ module.exports = (app) => {
 
     // SHOW
     app.get('/', (req, res) => {
-        // console.log(req.cookies);
+        res.render('sign-up')
+    });
+
+    app.get('/index', (req, res) => {
         const currentUser = req.user;
         Store.find({}).lean().populate()
             .then((stores) => res.render('index', { stores, currentUser }))
             .catch((err) => {
                 console.log(err.message)
             })
-
     });
 
     // JOIN QUEUE
-    app.post('/', (req, res) => {
+    app.post('/index', (req, res) => {
         store = Store.findById({_id:req.params.id});
-        res.redirect('index');
+        res.render('index');
     })
 
     // INDEX
@@ -52,12 +54,7 @@ module.exports = (app) => {
     // STORE DETAIL PAGE
 
     app.get('/store/:id', (req, res) => {
-<<<<<<< HEAD
-        storeId = Store.find({_id:req.params.id}).lean().populate('name')
-        const { user } = req;
-=======
         storeId = Store.findById({_id:req.params.id})
->>>>>>> c0aad2220c02e111d0996368e4afedd5abcd2d06
         res.render('stores-detail', { storeId });
         // console.log(storeId);
         // store = Store.findById(storeId)

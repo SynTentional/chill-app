@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,10 +11,15 @@
     <title>Chill App</title>
   </head>
   <body>
-    <p>{{this.name}}</p>
+    <h3 class="text-center">{{this.name}}</h3>
     <p>{{this.summary}}</p>
+    {{#if currentUser}}
+      <form action="">
+        <fieldset>
+          <legend>Create a list!</legend>
+          <input type="text" name="name of item" id="">
+        </fieldset>
+      </form>
+    {{/if}}
   </body>
 </html>
-=======
-{{this.name}}
->>>>>>> c0aad2220c02e111d0996368e4afedd5abcd2d06

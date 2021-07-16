@@ -12,90 +12,39 @@
     <title>Chill App</title>
   </head>
   <body>
-<<<<<<< HEAD
-  <!-- Triple brackets -->
-  <!-- Learn handlebars syntax--->
-     <nav class="navbar navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">Chill App</a>
-        <a class="nav-link text-center" href="/stores/new">Add store</a>
-        <a href="/sign-up">Logout</a>
-        {{#if user}}
-          <a href="/sign-up">Logout</a>
-        {{/if}}
-      </div>
-    </nav>
-=======
->>>>>>> c0aad2220c02e111d0996368e4afedd5abcd2d06
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Chill App</a>
+      <a class="nav-link text-center" href="/stores/new">Add store</a>
+      {{#if currentUser}}
+      <a href="/sign-up">Logout</a>
+      {{/if}}
+    </nav> 
   <!-- Triple brackets -->
   <!-- Learn handlebars syntax--->
   <div class="container">
     <div class="row">
       {{#if currentUser}}
       <h2>Browse stores</h2>
+      {{/if}}
     </div>
   </div>
   <div class="container">
     <div class="row">
-<<<<<<< HEAD
         {{#each store}}
         <div class="col-md-3 col-sm-6">
-=======
-      <div class="container">
-        {{#each stores}}
-        <div class="col-md-3">
->>>>>>> c0aad2220c02e111d0996368e4afedd5abcd2d06
           <div class="card" style="width: 18rem;">
             <div class="card-body">
               <h4 class="card-title">{{this.name}}</h4>
               <a href="{{this.url}}" class="card-link">{{this.url}}</a>
-<<<<<<< HEAD
               <p class="card-text">Users in line: {{this.queue}}</p>
               <button type="submit" class="btn btn-primary">Join Queue</button>
-              <a href="store/{{this._id}}"><button type="submit" class="btn btn-primary">Details</button></a>
-=======
-              <p class="card-text">Users in line: {{this.queue.length}}</p>
               <a href="store/{{this._id}}/join_queue" method="post"><button type="submit" class="btn btn-primary">Join Queue</button></a>
               <a href="store/{{this._id}}" method="post"><button type="submit" class="btn btn-primary">Details</button></a>
->>>>>>> c0aad2220c02e111d0996368e4afedd5abcd2d06
             </div>
           </div>
         </div>
         {{/each}}
-<<<<<<< HEAD
     </div>
-=======
-      </div>
-        {{!-- <ul>
-          {{#each store}}
-            <li class="list-group-item">
-              <div class="lead">{{this.name}}</div>
-              <a href="{{this.url}}" target="_blank">{{this.url}}</a>
-              <p>{{this.summary}}</p>
-              <p>Users in line: {{this.queue}}</p>
-              <button type="submit" class="btn btn-primary">Join Queue</button>
-            </li>
-          {{/each}}
-        </ul> --}}
-      </div>
-      </div>
-      {{/if}}
->>>>>>> c0aad2220c02e111d0996368e4afedd5abcd2d06
   </div>
-  {{!-- <div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <ul>
-      {{#each store}}
-        <li class="list-group-item">
-          <div class="lead">{{this.name}}</div>
-          <a href="{{this.url}}" target="_blank">{{this.url}}</a>
-          <p>{{this.summary}}</p>
-          <p>Users in line: {{this.queue}}</p>
-          <button type="submit" class="btn btn-primary">Join Queue</button>
-        </li>
-      {{/each}}
-    </ul>
-  </div> --}}
-{{!-- </div> --}}
   </body>
 </html>
