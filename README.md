@@ -38,4 +38,3 @@ We think this could be a cool portfolio project so we want to implement more fea
 Being able to create a list of things to buy while browsing the stores site
 Create routes so that when a user leaves a store, they can press a button that their heading to the next store on their route and then the app will automatically put them in line once they are in the proximity of the store.
 Have an estimated wait time.
- 
